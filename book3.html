@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Powerless</title>
+  <link rel="stylesheet" href="Booknest.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="Booknest.png"
+            alt="booknest"/>
+         </div>
+         <div class="search-bar">
+            <span>🔍 search:</span>
+            <input type="text" id="searchBar" placeholder="book/author" onkeyup="searchBooks()"/>
+        </div>
+    </header>   
+    <nav class="navbar">
+       <ul>
+           <li><a href="booknest.html">Home</a></li>
+           <li><a href="about.html">About</a></li>
+           <li><a href="contact.html">Contact</a></li>
+       </ul>
+    </nav>
+    
+  <!-- 📖 BOOK PAGE CONTENT -->
+ <center> <div class="main-content">
+    <h1>Powerless</h1>
+    <br>
+    <img src="bookimges/book3.jpg" alt="Bookcover3" />
+    &nbsp; &nbsp; <p><strong>Author:</strong> Laurn Roberts</p>
+   &nbsp;&nbsp; <p><strong>Genre:</strong> Romance, Sports, Drama</p>
+   &nbsp;&nbsp; <p><strong>Description:</strong> In a kingdom where people are born with deadly abilities, Paedyn Gray is an ordinary girl—Powerless.
+    <br> Or so everyone thinks. Pretending to be one of the Elites to survive, she’s dragged into a cutthroat competition and catches the eye of the ruthless prince, Kai.
+    <br> But the closer she gets to winning, 
+    <br>the more deadly the game becomes—and hiding her secret could cost her everything.</p>
+  </div></center>
+
+
+
+  <script>
+    function filterBooks(genre) {
+      const books = document.querySelectorAll('.book');
+      books.forEach(book => {
+        if (book.dataset.genre === genre || genre === 'all') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script>
+    function searchBooks() {
+      const input = document.getElementById("searchBar").value.toLowerCase();
+      const books = document.querySelectorAll(".book");
+  
+      books.forEach(book => {
+        const title = book.textContent.toLowerCase();
+        if (title.includes(input)) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

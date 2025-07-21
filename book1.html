@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Binding 13</title>
+  <link rel="stylesheet" href="Booknest.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="Booknest.png"
+            alt="booknest"/>
+         </div>
+         <div class="search-bar">
+            <span>🔍 search:</span>
+            <input type="text" id="searchBar" placeholder="book/author" onkeyup="searchBooks()"/>
+        </div>
+    </header>   
+    <nav class="navbar">
+       <ul>
+           <li><a href="booknest.html">Home</a></li>
+           <li><a href="about.html">About</a></li>
+           <li><a href="contact.html">Contact</a></li>
+       </ul>
+    </nav>
+    
+  <!-- 📖 BOOK PAGE CONTENT -->
+ <center> <div class="main-content">
+    <h1>Binding 13</h1>
+    <br>
+    <img src="bookimges/book1.jpg" alt="Bookcover1" />
+    &nbsp; &nbsp; <p><strong>Author:</strong> Chloe Walsh</p>
+   &nbsp;&nbsp; <p><strong>Genre:</strong> Romance, Sports, Drama</p>
+   &nbsp;&nbsp; <p><strong>Description:</strong> Binding 13 is a coming-of-age love story set in Dublin. 
+    <br>It follows the journey of two young souls, Johnny and Shannon, as they navigate pain, healing, and passion. 
+    <br> Their connection is deep, real, and unforgettable...</p>
+  </div></center>
+
+
+
+  <script>
+    function filterBooks(genre) {
+      const books = document.querySelectorAll('.book');
+      books.forEach(book => {
+        if (book.dataset.genre === genre || genre === 'all') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script>
+    function searchBooks() {
+      const input = document.getElementById("searchBar").value.toLowerCase();
+      const books = document.querySelectorAll(".book");
+  
+      books.forEach(book => {
+        const title = book.textContent.toLowerCase();
+        if (title.includes(input)) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

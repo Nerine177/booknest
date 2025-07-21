@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booknest</title><link rel="stylesheet"
+    href="Booknest.css"/>
+</head>
+<body>
+ <header class="top-bar">
+    <div class="logo-area">
+        <img src="Booknest.png"
+        alt="booknest"/>
+     </div>
+     <div class="search-bar">
+        <span>🔍 search:</span>
+        <input type="text" id="searchBar" placeholder="book/author" onkeyup="searchBooks()"/>
+    </div>
+  </header>   
+  <nav class="navbar">
+     <ul>
+         <li><a href="booknest.html">Home</a></li>
+         <li><a href="about.html">About</a></li>
+         <li><a href="contact.html">Contact</a></li>
+     </ul>
+  </nav>
+  
+ </nav>
+ 
+   <center> <h2>Genres</h2>
+    <div class="genre-container">
+      <button class="genre-box" onclick="filterBooks('romance')">Romance</button>
+      <button class="genre-box" onclick="filterBooks('thriller')">Thriller</button>
+      <button class="genre-box" onclick="filterBooks('fantasy')">Fantasy</button>
+    </div></center>
+  </section>
+<center>
+  <section class="book-section">
+    <div class="book" data-genre="romance"><img src="bookimges/book1.jpg" alt="book cover1" >
+    <h3><a href="book1.html"> Binding 13</a></h3></div>
+    <div class="book" data-genre="fantasy"><img src="bookimges/book2.jpg" alt="book cover2" >
+      <h3><a href="book2.html"> if you could see the sun</a></h3></div>
+    <div class="book" data-genre="fantasy"><img src="bookimges/book3.jpg" alt="book cover3" >
+      <h3><a href="book3.html"> Powerless</a></h3></div>
+    <div class="book" data-genre="thriller"> <img src="bookimges/book4.jpg" alt="book cover4" >
+      <h3><a href="book4.html"> percy jakeson</a></h3></div>
+  </section>
+</center>
+
+
+
+  <script>
+    function filterBooks(genre) {
+      const books = document.querySelectorAll('.book');
+      books.forEach(book => {
+        if (book.dataset.genre === genre || genre === 'all') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script>
+    function searchBooks() {
+      const input = document.getElementById("searchBar").value.toLowerCase();
+      const books = document.querySelectorAll(".book");
+  
+      books.forEach(book => {
+        const title = book.textContent.toLowerCase();
+        if (title.includes(input)) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
